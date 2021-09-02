@@ -1,0 +1,11 @@
+{
+  "github": {
+    "tag": true,
+    "push": true,
+    "commit": true,
+    "requireBranch": "main"
+  },
+  "npm": {
+    "publish": true
+  }
+}
