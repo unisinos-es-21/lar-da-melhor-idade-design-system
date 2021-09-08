@@ -1,17 +1,20 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Title } from '../';
+import { Title, Size, Color } from '../';
 
 export default {
   title: 'Example/Title',
-  component: Title
+  component: Title,
 } as ComponentMeta<typeof Title>;
 
-const Template: ComponentStory<typeof Title> = args => <Title {...args} />;
+const Template: ComponentStory<typeof Title> = (args) => <Title {...args} />;
 
 export const TitleExample = Template.bind({});
 
 TitleExample.args = {
-  children: 'Test'
+  children: 'Test',
+  size: Size.MEDIUM,
+  color: Color.BLACK,
+  type: 'h2',
 };
