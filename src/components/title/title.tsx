@@ -3,6 +3,8 @@ import React from 'react';
 
 import { Size, Color } from '../../types';
 
+import './title.css';
+
 export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   size: Size;
   type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
@@ -17,17 +19,7 @@ export function Title({
   className,
   ...props
 }: TitleProps) {
-  const classNames = classnames(
-    {
-      'text-base': size === Size.SMALL,
-      'text-2xl': size === Size.MEDIUM,
-      'text-4xl': size === Size.LARGE,
-      'text-black-200': color === Color.BLACK,
-      'text-gray-200': color === Color.GRAY,
-      'text-white': color === Color.WHITE,
-    },
-    className
-  );
+  const classNames = classnames('text', size, color, className);
 
   return React.createElement(type, {
     children,
