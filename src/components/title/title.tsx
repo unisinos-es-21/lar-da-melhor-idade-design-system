@@ -20,9 +20,9 @@ export function Title({
 }: TitleProps) {
   const classNames = classnames(
     {
-      'text-sm': size === Size.SMALL,
-      'text-base': size === Size.MEDIUM,
-      'text-lg': size === Size.LARGE,
+      'text-base': size === Size.SMALL,
+      'text-2xl': size === Size.MEDIUM,
+      'text-4xl': size === Size.LARGE,
       'text-black-200': color === Color.BLACK,
       'text-gray-200': color === Color.GRAY,
       'text-white': color === Color.WHITE,
