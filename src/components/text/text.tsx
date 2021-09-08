@@ -3,25 +3,23 @@ import React from 'react';
 
 import { Size, Color } from '../../types';
 
-export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   size: Size;
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
   color: Color.BLACK | Color.GRAY | Color.WHITE;
 }
 
-export function Title({
-  children = null,
+export function Text({
+  children,
   size = Size.MEDIUM,
-  type = 'h2',
   color = Color.BLACK,
   className,
   ...props
-}: TitleProps) {
+}: TextProps) {
   const classNames = classnames(
     {
-      'text-base': size === Size.SMALL,
-      'text-2xl': size === Size.MEDIUM,
-      'text-4xl': size === Size.LARGE,
+      'text-xs': size === Size.SMALL,
+      'text-base': size === Size.MEDIUM,
+      'text-2xl': size === Size.LARGE,
       'text-black-200': color === Color.BLACK,
       'text-gray-200': color === Color.GRAY,
       'text-white': color === Color.WHITE,
@@ -29,9 +27,9 @@ export function Title({
     className
   );
 
-  return React.createElement(type, {
-    children,
-    className: classNames,
-    ...props,
-  });
+  return (
+    <p className={classNames} {...props}>
+      {children}
+    </p>
+  );
 }
