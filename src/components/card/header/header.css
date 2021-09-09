@@ -1,0 +1,11 @@
+.card-header {
+  @apply p-4  rounded-t-lg text-center font-bold text-white;
+
+  &.purple {
+    @apply bg-purple-200;
+  }
+
+  &.blue {
+    @apply bg-blue-200;
+  }
+}
