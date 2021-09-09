@@ -6,9 +6,9 @@ import { Size, Color } from '../../types';
 import './title.css';
 
 export interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  size: Size;
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-  color: Color.BLACK | Color.GRAY | Color.WHITE;
+  size?: Size;
+  type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+  color?: Color.BLACK | Color.GRAY | Color.WHITE;
 }
 
 export function Title({
