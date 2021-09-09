@@ -1,0 +1,27 @@
+.button {
+  @apply flex justify-between items-center px-4 py-2 rounded-lg font-bold;
+
+  &.black {
+    @apply bg-black-200 text-white;
+  }
+
+  &.green {
+    @apply bg-green-200 text-white;
+  }
+
+  &.yellow {
+    @apply bg-yellow-200 text-white;
+  }
+
+  &.red {
+    @apply bg-red-300 text-white;
+  }
+
+  &:disabled {
+    @apply bg-gray-100 text-gray-200;
+  }
+
+  .icon {
+    @apply ml-4;
+  }
+}

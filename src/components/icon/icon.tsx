@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React from 'react';
 import {
   FontAwesomeIcon,
@@ -6,6 +7,8 @@ import {
 
 export interface IconProps extends FontAwesomeIconProps {}
 
-export function Icon(props: IconProps) {
-  return <FontAwesomeIcon {...props} />;
+export function Icon({ className, ...props }: IconProps) {
+  return (
+    <FontAwesomeIcon className={classnames('icon', className)} {...props} />
+  );
 }

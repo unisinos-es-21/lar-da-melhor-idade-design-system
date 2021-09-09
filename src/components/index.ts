@@ -1,3 +1,4 @@
+export * from './button';
 export * from './hello-world';
 export * from './icon';
 export * from './input';
