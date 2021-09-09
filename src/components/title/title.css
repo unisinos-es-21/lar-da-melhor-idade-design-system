@@ -1,0 +1,25 @@
+.text {
+  &.sm {
+    @apply text-base;
+  }
+
+  &.md {
+    @apply text-2xl;
+  }
+
+  &.lg {
+    @apply text-4xl;
+  }
+
+  &.black {
+    @apply text-black-200;
+  }
+
+  &.gray {
+    @apply text-gray-200;
+  }
+
+  &.white {
+    @apply text-white;
+  }
+}
