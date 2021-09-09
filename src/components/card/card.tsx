@@ -7,8 +7,8 @@ import { CardHeader, CardHeaderProps } from './header';
 import './card.css';
 
 export interface CardComposition {
-  Content: React.FC<CardContentProps>;
-  CardHeader: React.FC<CardHeaderProps>;
+  Content?: React.FC<CardContentProps>;
+  Header?: React.FC<CardHeaderProps>;
 }
 
 export interface CardProps
