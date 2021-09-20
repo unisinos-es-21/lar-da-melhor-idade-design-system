@@ -12,4 +12,8 @@
   &:disabled {
     @apply bg-gray-200;
   }
+
+  &[type='radio'] {
+    @apply w-10 h-10 mr-4;
+  }
 }
