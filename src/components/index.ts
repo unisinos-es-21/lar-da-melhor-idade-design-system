@@ -1,5 +1,6 @@
 export * from './card';
 export * from './button';
+export * from './header';
 export * from './hello-world';
 export * from './icon';
 export * from './input';
