@@ -58,3 +58,13 @@ InputWithButton.args = {
   placeholder: 'test',
   iconInternal: 'lock',
 };
+
+const TemplateRadio: ComponentStory<typeof Input> = (args) => (
+  <Input type="radio" {...args} />
+);
+
+export const InputRadio = TemplateRadio.bind({});
+
+InputRadio.args = {
+  label: 'radio',
+};
