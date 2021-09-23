@@ -47,9 +47,9 @@ export function Table({
 }: TableProps) {
   const classNames = classnames('table-container', className);
 
-  const onSearch = useCallback(async (evt) => {
+  const onSearch = useCallback((evt) => {
     if (filter) {
-      await filter(evt.target[inputName].value);
+      filter(evt.target[inputName].value);
     }
 
     evt.preventDefault();
