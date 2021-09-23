@@ -10,47 +10,20 @@ export default {
 
 const data = [
   {
-    col1: 'Hello',
-    col2: 'World',
+    values: ['Hello', 'World'],
   },
   {
-    col1: 'react-table',
-    col2: 'rocks',
+    values: ['react-table', 'rocks'],
   },
   {
-    col1: 'whatever',
-    col2: 'you want',
+    values: ['whatever', 'you want'],
   },
 ];
 
-const columns = [
-  {
-    Header: 'Column 1',
-    accessor: 'col1',
-  },
-  {
-    Header: 'Column 2',
-    accessor: 'col2',
-  },
-];
+const columns = ['Column 1', 'Column 2'];
+const dataValues = [...data, ...data, ...data];
 
 const Template: ComponentStory<typeof Table> = (args) => {
-  const dataValues = [
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-    ...data,
-  ];
   const [values, setValues] = useState([...dataValues]);
 
   const handleSearch = useCallback(
@@ -59,8 +32,8 @@ const Template: ComponentStory<typeof Table> = (args) => {
         return setValues(dataValues);
       }
 
-      const dataSearch = dataValues.filter(
-        ({ col1, col2 }) => col1.match(value) || col2.match(value)
+      const dataSearch = dataValues.filter(({ values }) =>
+        values.includes(value)
       );
 
       return setValues(dataSearch);
@@ -79,4 +52,5 @@ TableExample.args = {
   title: 'test',
   inputName: 'test',
   inputPlaceholder: 'test',
+  totalPages: 1,
 };
