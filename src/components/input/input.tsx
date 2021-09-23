@@ -15,6 +15,7 @@ export interface InputProps
   iconLabel?: IconProp;
   iconInternal?: IconProp;
   onClickInternalButton?: React.MouseEventHandler<HTMLButtonElement>;
+  internalButtonType?: 'button' | 'submit';
 }
 
 export function Input({
@@ -23,13 +24,20 @@ export function Input({
   iconLabel,
   iconInternal,
   onClickInternalButton,
+  internalButtonType = 'button',
   id,
   type = 'text',
   ...props
 }: InputProps) {
   return (
     <div className="flex justify-between items-center">
-      {iconLabel ? <Icon icon={iconLabel} className="mr-4 text-2xl" /> : null}
+      {iconLabel ? (
+        <Icon
+          icon={iconLabel}
+          className="mr-4 text-2xl text-black-200"
+          color="black"
+        />
+      ) : null}
       <div className="flex items-center w-full relative">
         <input
           className={classnames('input', className)}
@@ -42,11 +50,11 @@ export function Input({
         ) : null}
         {iconInternal && !['radio', 'checkbox'].includes(type) ? (
           <button
-            type="button"
+            type={internalButtonType}
             className="absolute right-4"
             onClick={onClickInternalButton}
           >
-            <Icon icon={iconInternal} className="text-base" />
+            <Icon icon={iconInternal} color="black" className="text-base" />
           </button>
         ) : null}
       </div>

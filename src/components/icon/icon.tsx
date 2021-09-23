@@ -7,8 +7,12 @@ import {
 
 export interface IconProps extends FontAwesomeIconProps {}
 
-export function Icon({ className, ...props }: IconProps) {
+export function Icon({ className, color, ...props }: IconProps) {
   return (
-    <FontAwesomeIcon className={classnames('icon', className)} {...props} />
+    <FontAwesomeIcon
+      className={classnames('icon', className)}
+      color={color}
+      {...props}
+    />
   );
 }

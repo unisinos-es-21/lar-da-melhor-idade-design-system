@@ -4,5 +4,6 @@ export * from './header';
 export * from './hello-world';
 export * from './icon';
 export * from './input';
+export * from './table';
 export * from './text';
 export * from './title';
