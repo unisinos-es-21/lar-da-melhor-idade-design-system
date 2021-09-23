@@ -35,15 +35,31 @@ const columns = [
 ];
 
 const Template: ComponentStory<typeof Table> = (args) => {
-  const [values, setValues] = useState(data);
+  const dataValues = [
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+    ...data,
+  ];
+  const [values, setValues] = useState([...dataValues]);
 
   const handleSearch = useCallback(
     (value: string) => {
       if (value.length === 0) {
-        return setValues(data);
+        return setValues(dataValues);
       }
 
-      const dataSearch = data.filter(
+      const dataSearch = dataValues.filter(
         ({ col1, col2 }) => col1.match(value) || col2.match(value)
       );
 

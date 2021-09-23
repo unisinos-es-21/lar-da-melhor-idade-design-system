@@ -1,12 +1,14 @@
 import classnames from 'classnames';
 import React, { useCallback } from 'react';
-import { useTable, Column } from 'react-table';
+import { useTable, usePagination, Column, HeaderGroup, Row } from 'react-table';
 
 import './table.css';
 
 import { Card } from '../card';
 import { Title } from '../title';
 import { Input } from '../input';
+import { Button } from '../button';
+
 import { Color, Size } from '../../types';
 
 export interface TableProps
@@ -34,9 +36,21 @@ export function Table({
   ...props
 }: TableProps) {
   const classNames = classnames('table-container', className);
-  const tableInstance = useTable({ columns, data });
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    tableInstance;
+  const tableInstance = useTable({ columns, data }, usePagination) as any;
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    prepareRow,
+    pageOptions,
+    state: { pageIndex },
+    previousPage,
+    nextPage,
+    canPreviousPage,
+    canNextPage,
+  } = tableInstance;
 
   const onSearch = useCallback(async (evt) => {
     if (filter) {
@@ -65,7 +79,7 @@ export function Table({
       <Card.Content className="table-content">
         <table className="table" {...getTableProps()} {...props}>
           <thead>
-            {headerGroups.map((headerGroup) => (
+            {headerGroups.map((headerGroup: HeaderGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
                   <th {...column.getHeaderProps()}>
@@ -76,7 +90,7 @@ export function Table({
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
+            {page.map((row: Row) => {
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()}>
@@ -90,6 +104,30 @@ export function Table({
             })}
           </tbody>
         </table>
+        <div className="flex w-full items-center justify-end space-x-4 mt-4">
+          <Button
+            color={Color.BLACK}
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+            icon="arrow-left"
+          >
+            Anterior
+          </Button>
+          <div>
+            Página{' '}
+            <em>
+              {pageIndex + 1} de {pageOptions.length}
+            </em>
+          </div>
+          <Button
+            color={Color.BLACK}
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+            icon="arrow-right"
+          >
+            Próxima
+          </Button>
+        </div>
       </Card.Content>
     </Card>
   );
