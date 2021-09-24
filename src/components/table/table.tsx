@@ -81,11 +81,11 @@ export function Table({
             </tr>
           </thead>
           <tbody>
-            {data.map((row) => {
+            {data.map((row, index) => {
               return (
-                <tr>
+                <tr key={`row-tr-${index}`}>
                   {row.values.map((value, index) => {
-                    return <td key={`row-${index}`}>{value}</td>;
+                    return <td key={`row-td-${index}`}>{value}</td>;
                   })}
                 </tr>
               );
