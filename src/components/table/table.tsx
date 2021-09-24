@@ -72,27 +72,29 @@ export function Table({
         </form>
       </Card.Header>
       <Card.Content className="table-content">
-        <table className="table" {...props}>
-          <thead>
-            <tr>
-              {columns.map((column, index) => {
-                return <th key={`column-${index}`}>{column}</th>;
+        <div className="overflow-x-auto">
+          <table className="table" {...props}>
+            <thead>
+              <tr>
+                {columns.map((column, index) => {
+                  return <th key={`column-${index}`}>{column}</th>;
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((row, index) => {
+                return (
+                  <tr key={`row-tr-${index}`}>
+                    {row.values.map((value, index) => {
+                      return <td key={`row-td-${index}`}>{value}</td>;
+                    })}
+                  </tr>
+                );
               })}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, index) => {
-              return (
-                <tr key={`row-tr-${index}`}>
-                  {row.values.map((value, index) => {
-                    return <td key={`row-td-${index}`}>{value}</td>;
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        <div className="flex w-full items-center justify-end space-x-4 mt-4">
+            </tbody>
+          </table>
+        </div>
+        <div className="table-footer">
           <Button
             color={Color.BLACK}
             onClick={() => previousPage()}

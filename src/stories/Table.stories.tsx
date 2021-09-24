@@ -10,17 +10,17 @@ export default {
 
 const data = [
   {
-    values: ['Hello', 'World'],
+    values: ['Hello', 'World', 'Hello', 'World', 'Hello'],
   },
   {
-    values: ['react-table', 'rocks'],
+    values: ['Hello', 'World', 'Hello', 'World', 'Hello'],
   },
   {
-    values: ['whatever', 'you want'],
+    values: ['Hello', 'World', 'Hello', 'World', 'Hello'],
   },
 ];
 
-const columns = ['Column 1', 'Column 2'];
+const columns = ['Column 1', 'Column 2', 'Column 3', 'Column 4', 'Column 5'];
 const dataValues = [...data, ...data, ...data];
 
 const Template: ComponentStory<typeof Table> = (args) => {
