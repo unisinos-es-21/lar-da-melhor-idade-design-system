@@ -84,8 +84,8 @@ export function Table({
             {data.map((row) => {
               return (
                 <tr>
-                  {row.values.map((value) => {
-                    return <td key={`row-${value}`}>{value}</td>;
+                  {row.values.map((value, index) => {
+                    return <td key={`row-${index}`}>{value}</td>;
                   })}
                 </tr>
               );
