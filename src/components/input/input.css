@@ -10,7 +10,7 @@
   }
 
   &:disabled {
-    @apply bg-gray-200;
+    @apply bg-gray-100 cursor-not-allowed;
   }
 
   &[type='radio'] {
