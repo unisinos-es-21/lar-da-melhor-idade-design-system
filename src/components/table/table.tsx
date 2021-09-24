@@ -75,8 +75,8 @@ export function Table({
         <table className="table" {...props}>
           <thead>
             <tr>
-              {columns.map((column) => {
-                return <th>{column}</th>;
+              {columns.map((column, index) => {
+                return <th key={`column-${index}`}>{column}</th>;
               })}
             </tr>
           </thead>
@@ -85,7 +85,7 @@ export function Table({
               return (
                 <tr>
                   {row.values.map((value) => {
-                    return <td>{value}</td>;
+                    return <td key={`row-${value}`}>{value}</td>;
                   })}
                 </tr>
               );
