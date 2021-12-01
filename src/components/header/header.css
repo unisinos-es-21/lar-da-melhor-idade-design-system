@@ -1,3 +1,15 @@
 .header {
-  @apply w-full py-8 flex justify-center bg-blue-200 shadow-md;
+  @apply w-full py-8 flex justify-center shadow-md;
+
+  &.purple {
+    @apply bg-purple-200;
+  }
+
+  &.blue {
+    @apply bg-blue-200;
+  }
+
+  &.black {
+    @apply bg-black-200;
+  }
 }
