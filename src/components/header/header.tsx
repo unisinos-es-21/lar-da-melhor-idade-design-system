@@ -19,10 +19,10 @@ export function Header({
   className,
   ...props
 }: HeaderProps) {
-  const classNames = classnames('container', color, className);
+  const classNames = classnames('header', color, className);
 
   return (
-    <header className="header" {...props}>
+    <header className={classNames} {...props}>
       <div className={classNames}>{children}</div>
     </header>
   );
