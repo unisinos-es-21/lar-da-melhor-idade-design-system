@@ -1,10 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: {
-    enabled: true,
-    content: ['./src/**/*.tsx'],
-  },
+  purge: [],
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -24,9 +21,9 @@ module.exports = {
       },
       white: colors.white,
       gray: {
+        50: '#e0e7ff',
         100: '#E5E5E5',
         200: '#727272',
-        300: '#e0e7ff',
       },
       red: {
         300: '#F04F4E',
